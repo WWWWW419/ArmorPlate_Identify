@@ -1,0 +1,19 @@
+# 构建产物
+build/
+.build/
+out/
+
+# OpenCV 库
+opencv/
+
+# VS Code
+.vscode/ipch/
+
+# 可执行文件
+*.exe
+*.o
+*.obj
+
+# 系统文件
+Thumbs.db
+desktop.ini

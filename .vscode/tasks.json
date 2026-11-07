@@ -1,0 +1,65 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "CMake: 配置",
+            "type": "shell",
+            "command": "C:/sdk/mingw64/bin/cmake.exe",
+            "args": [
+                "-S",
+                ".",
+                "-B",
+                "build",
+                "-G",
+                "MinGW Makefiles",
+                "-DCMAKE_C_COMPILER=C:/sdk/mingw64/bin/gcc.exe",
+                "-DCMAKE_CXX_COMPILER=C:/sdk/mingw64/bin/g++.exe",
+                "-DCMAKE_MAKE_PROGRAM=C:/sdk/mingw64/bin/mingw32-make.exe",
+                "-DCMAKE_BUILD_TYPE=Debug"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "CMake: 构建",
+            "type": "shell",
+            "command": "C:/sdk/mingw64/bin/cmake.exe",
+            "args": [
+                "--build",
+                "build",
+                "--parallel",
+                "16"
+            ],
+            "dependsOn": "CMake: 配置",
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
+        },
+        {
+            "type": "cppbuild",
+            "label": "C/C++: g++.exe 生成活动文件",
+            "command": "C:/sdk/mingw64/bin/g++.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+            ],
+            "options": {
+                "cwd": "C:/sdk/mingw64/bin"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "调试器生成的任务。"
+        }
+    ]
+}
